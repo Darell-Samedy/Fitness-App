@@ -1,10 +1,11 @@
+import React from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
 import { ColorModeContext, useMode } from './theme';
 import TopBar from './scenes/global/TopBar';
 import SideBar from './scenes/global/SideBar';
 import Dashboard from './scenes/dashboard';
-import Team from './scenes/team';
+import Team from './scenes/team/index.jsx';
 // import Invoices from './scenes/invoices';
 // import Contacts from './scenes/contacts';
 // import Bar from './scenes/bar';
@@ -37,7 +38,7 @@ function App() {
               <Route path="/pie" element={<Pie />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/geography" element={<Geography />} />
-              <Route path="/calendar" element={<Calendar />} /> */} 
+              <Route path="/calendar" element={<Calendar />} /> */}
             </Routes>
           </main>
         </div>
