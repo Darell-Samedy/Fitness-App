@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css'; // Correct CSS import path
+import 'react-pro-sidebar/dist/css/styles.css';
 import { Box, IconButton, Typography, useTheme } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { tokens } from '../../theme';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import PeopleOutlinedIcon from '@mui/icons-material/PeopleOutlined';
-import ContactsOutlinedIcon from '@mui/icons-material/ContactsOutlined';
-import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
-import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import SportsMotorsportsIcon from '@mui/icons-material/SportsMotorsports';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
-import PieChartOutlineOutlinedIcon from '@mui/icons-material/PieChartOutlineOutlined';
-import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-import MapOutlinedIcon from '@mui/icons-material/MapOutlined';
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -79,7 +76,7 @@ const SideBar = () => {
                 ml="15px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  ADMINIS
+                  FITNESS APP
                 </Typography>
                 <IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
                   <MenuOutlinedIcon />
@@ -99,72 +96,51 @@ const SideBar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Manage Team"
-              to="/team"
-              icon={<PeopleOutlinedIcon />}
+              title="Workout Plans"
+              to="/workouts"
+              icon={<FitnessCenterIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Contacts Information"
-              to="/contacts"
-              icon={<ContactsOutlinedIcon />}
+              title="Nutrition & Diet"
+              to="/nutrition"
+              icon={<RestaurantIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Invoices Balances"
-              to="/invoices"
-              icon={<ReceiptOutlinedIcon />}
+              title="Progress Tracking"
+              to="/progress"
+              icon={<TimelineIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Profile Form"
-              to="/form"
-              icon={<PersonOutlinedIcon />}
+              title="Challenges & Goals"
+              to="/challenges"
+              icon={<SportsMotorsportsIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="Calendar"
+              title="Exercise Library"
+              to="/exercises"
+              icon={<AssessmentIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Calendar & Schedule"
               to="/calendar"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
-              title="FAQ Page"
+              title="FAQ & Help"
               to="/faq"
               icon={<HelpOutlineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Bar Chart"
-              to="/bar"
-              icon={<BarChartOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Pie Chart"
-              to="/pie"
-              icon={<PieChartOutlineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Line Chart"
-              to="/line"
-              icon={<TimelineOutlinedIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Geography Chart"
-              to="/geography"
-              icon={<MapOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -172,7 +148,9 @@ const SideBar = () => {
         </SidebarContent>
 
         <SidebarFooter>
-          {/* Add any footer content here */}
+          <Typography color={colors.grey[100]} textAlign="center" p="10px">
+            Stay Fit, Stay Healthy!
+          </Typography>
         </SidebarFooter>
       </ProSidebar>
     </Box>

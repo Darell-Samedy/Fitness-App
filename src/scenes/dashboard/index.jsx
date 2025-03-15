@@ -1,17 +1,17 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
-import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
-import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
+import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
+import FastfoodIcon from "@mui/icons-material/Fastfood";
 import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
-import GeographyChart from "../../components/GeographyChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
+import GeographyChart from "../../components/GeographyChart";
+
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -21,7 +21,7 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+        <Header title="FITNESS DASHBOARD" subtitle="Track your fitness journey" />
 
         <Box>
           <Button
@@ -34,7 +34,7 @@ const Dashboard = () => {
             }}
           >
             <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
+            Download Progress Report
           </Button>
         </Box>
       </Box>
@@ -46,7 +46,7 @@ const Dashboard = () => {
         gridAutoRows="140px"
         gap="20px"
       >
-        {/* ROW 1 */}
+        {/* ROW 1: Key Stats */}
         <Box
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
@@ -55,12 +55,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
-            progress="0.75"
-            increase="+14%"
+            title="15"
+            subtitle="Workouts Completed"
+            progress="🔥 Streak: 5 Days"
+            increase="+5 from last week"
             icon={
-              <EmailIcon
+              <FitnessCenterIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -74,12 +74,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="431,225"
-            subtitle="Sales Obtained"
-            progress="0.50"
-            increase="+21%"
+            title="3,200 kcal"
+            subtitle="Calories Burned"
+            progress="🚀 Goal: 3500 kcal"
+            increase="+12% from last week"
             icon={
-              <PointOfSaleIcon
+              <LocalFireDepartmentIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -93,12 +93,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="32,441"
-            subtitle="New Clients"
-            progress="0.30"
-            increase="+5%"
+            title="50,000"
+            subtitle="Steps Taken"
+            progress="🏃‍♂️ Goal: 70,000"
+            increase="+8% from last week"
             icon={
-              <PersonAddIcon
+              <DirectionsRunIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -112,19 +112,19 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="1,325,134"
-            subtitle="Traffic Received"
-            progress="0.80"
-            increase="+43%"
+            title="160g Protein"
+            subtitle="Daily Nutrition Goal"
+            progress="🍗 Goal: 180g"
+            increase="+10% improvement"
             icon={
-              <TrafficIcon
+              <FastfoodIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
           />
         </Box>
 
-        {/* ROW 2 */}
+        {/* ROW 2: Workout & Progress Charts */}
         <Box
           gridColumn="span 8"
           gridRow="span 2"
@@ -138,19 +138,11 @@ const Dashboard = () => {
             alignItems="center"
           >
             <Box>
-              <Typography
-                variant="h5"
-                fontWeight="600"
-                color={colors.grey[100]}
-              >
-                Revenue Generated
+              <Typography variant="h5" fontWeight="600" color={colors.grey[100]}>
+                Weekly Workout Progress
               </Typography>
-              <Typography
-                variant="h3"
-                fontWeight="bold"
-                color={colors.greenAccent[500]}
-              >
-                $59,342.32
+              <Typography variant="h3" fontWeight="bold" color={colors.greenAccent[500]}>
+                7/10 Workouts Completed
               </Typography>
             </Box>
             <Box>
@@ -165,58 +157,8 @@ const Dashboard = () => {
             <LineChart isDashboard={true} />
           </Box>
         </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          overflow="auto"
-        >
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
-            colors={colors.grey[100]}
-            p="15px"
-          >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
-            </Typography>
-          </Box>
-          {mockTransactions.map((transaction, i) => (
-            <Box
-              key={`${transaction.txId}-${i}`}
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              borderBottom={`4px solid ${colors.primary[500]}`}
-              p="15px"
-            >
-              <Box>
-                <Typography
-                  color={colors.greenAccent[500]}
-                  variant="h5"
-                  fontWeight="600"
-                >
-                  {transaction.txId}
-                </Typography>
-                <Typography color={colors.grey[100]}>
-                  {transaction.user}
-                </Typography>
-              </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
-              <Box
-                backgroundColor={colors.greenAccent[500]}
-                p="5px 10px"
-                borderRadius="4px"
-              >
-                ${transaction.cost}
-              </Box>
-            </Box>
-          ))}
-        </Box>
 
-        {/* ROW 3 */}
+        {/* ROW 3: Fitness Tracking */}
         <Box
           gridColumn="span 4"
           gridRow="span 2"
@@ -224,53 +166,38 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Campaign
+            Weight & Muscle Progress
           </Typography>
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            mt="25px"
-          >
+          <Box display="flex" flexDirection="column" alignItems="center" mt="25px">
             <ProgressCircle size="125" />
-            <Typography
-              variant="h5"
-              color={colors.greenAccent[500]}
-              sx={{ mt: "15px" }}
-            >
-              $48,352 revenue generated
+            <Typography variant="h5" color={colors.greenAccent[500]} sx={{ mt: "15px" }}>
+              5 lbs lost in 4 weeks
             </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+            <Typography>Current weight: 185 lbs</Typography>
           </Box>
         </Box>
+
         <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
         >
-          <Typography
-            variant="h5"
-            fontWeight="600"
-            sx={{ padding: "30px 30px 0 30px" }}
-          >
-            Sales Quantity
+          <Typography variant="h5" fontWeight="600" sx={{ padding: "30px 30px 0 30px" }}>
+            Caloric Intake
           </Typography>
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
           </Box>
         </Box>
+
         <Box
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           padding="30px"
         >
-          <Typography
-            variant="h5"
-            fontWeight="600"
-            sx={{ marginBottom: "15px" }}
-          >
-            Geography Based Traffic
+          <Typography variant="h5" fontWeight="600" sx={{ marginBottom: "15px" }}>
+            Body Progress Tracking
           </Typography>
           <Box height="200px">
             <GeographyChart isDashboard={true} />
