@@ -2,8 +2,8 @@ import React from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
 import { ColorModeContext, useMode } from './theme';
-import TopBar from './scenes/global/topBar';
-import SideBar from './scenes/global/SideBar'; // Correct import path
+import TopBar from './scenes/global/TopBar';
+import SideBar from './scenes/global/SideBar';
 import Dashboard from './scenes/dashboard';
 import Team from './scenes/team';
 import Invoices from './scenes/invoices';
@@ -23,18 +23,18 @@ function App() {
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div className="app">
-          <SideBar /> {/* Use SideBar instead of SideBarWrapper */}
-          <main className="content">
+        <div className="app" style={{ display: 'flex' }}>
+          <SideBar />
+          <main className="content" style={{ flexGrow: 1 }}>
             <TopBar />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/contacts" element={<Contacts />} />
-              <Route path="/invoices" element={<Invoices />} />
-              <Route path="/form" element={<Form />} />
+              <Route path="/workouts" element={<Team />} />
+              <Route path="/nutrition" element={<Contacts />} />
+              <Route path="/progress" element={<Invoices />} />
+              <Route path="/challenges" element={<Form />} />
+              <Route path="/exercises" element={<Bar />} />
               <Route path="/calendar" element={<Calendar />} />
-              <Route path="/bar" element={<Bar />} />
               <Route path="/line" element={<Line />} />
               <Route path="/pie" element={<Pie />} />
               <Route path="/faq" element={<FAQ />} />
