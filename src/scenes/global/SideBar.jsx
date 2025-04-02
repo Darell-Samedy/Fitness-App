@@ -25,9 +25,10 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       }}
       onClick={() => setSelected(to)}
       icon={icon}
-      component={<Link to={to} />}
     >
-      <Typography>{title}</Typography>
+      <Link to={to} style={{ color: 'inherit', textDecoration: 'none' }}>
+        <Typography>{title}</Typography>
+      </Link>
     </MenuItem>
   );
 };
@@ -42,6 +43,7 @@ const SideBar = () => {
   return (
     <Box
       sx={{
+        height: '100vh', // Ensure the sidebar stretches to the full height of the viewport
         '& .pro-sidebar-inner': {
           background: `${colors.primary[400]} !important`,
         },

@@ -12,7 +12,6 @@ import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 import GeographyChart from "../../components/GeographyChart";
 
-
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -53,6 +52,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          sx={{ borderRadius: "10px" }} // Add borderRadius here
         >
           <StatBox
             title="15"
@@ -72,6 +72,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          sx={{ borderRadius: "10px" }} // Add borderRadius here
         >
           <StatBox
             title="3,200 kcal"
@@ -91,6 +92,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          sx={{ borderRadius: "10px" }} // Add borderRadius here
         >
           <StatBox
             title="50,000"
@@ -110,6 +112,7 @@ const Dashboard = () => {
           display="flex"
           alignItems="center"
           justifyContent="center"
+          sx={{ borderRadius: "10px" }} // Add borderRadius here
         >
           <StatBox
             title="160g Protein"
@@ -129,6 +132,7 @@ const Dashboard = () => {
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
+          sx={{ borderRadius: "10px" }} // Add borderRadius here
         >
           <Box
             mt="25px"
@@ -164,6 +168,7 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           p="30px"
+          sx={{ borderRadius: "10px" }} // Add borderRadius here
         >
           <Typography variant="h5" fontWeight="600">
             Weight & Muscle Progress
@@ -181,6 +186,7 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
+          sx={{ borderRadius: "10px" }} // Add borderRadius here
         >
           <Typography variant="h5" fontWeight="600" sx={{ padding: "30px 30px 0 30px" }}>
             Caloric Intake
@@ -195,6 +201,7 @@ const Dashboard = () => {
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
           padding="30px"
+          sx={{ borderRadius: "10px" }} // Add borderRadius here
         >
           <Typography variant="h5" fontWeight="600" sx={{ marginBottom: "15px" }}>
             Body Progress Tracking

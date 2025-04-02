@@ -1,98 +1,72 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup'; // Import Yup
-import { Box, Button, TextField, Typography } from '@mui/material';
+import * as Yup from 'yup';
+import { Box, Button, TextField, Typography, Card, CardContent, Grid } from '@mui/material';
 import Header from '../../components/Header';
 
 const validationSchema = Yup.object({
-  firstName: Yup.string().required('Required'),
-  lastName: Yup.string().required('Required'),
-  email: Yup.string().email('Invalid email address').required('Required'),
-  phone: Yup.string().required('Required'),
-  address: Yup.string().required('Required'),
-  city: Yup.string().required('Required'),
-  state: Yup.string().required('Required'),
-  zip: Yup.string().required('Required'),
+  challenge: Yup.string().required('Required'),
+  goal: Yup.string().required('Required'),
 });
 
-const FormPage = () => {
+const FormsPage = () => {
   return (
     <Box m="20px">
-      <Header title="FORM" subtitle="Create a New User Profile" />
-      <Box mt="20px">
-        <Formik
-          initialValues={{
-            firstName: '',
-            lastName: '',
-            email: '',
-            phone: '',
-            address: '',
-            city: '',
-            state: '',
-            zip: '',
-          }}
-          validationSchema={validationSchema}
-          onSubmit={(values) => {
-            console.log(values);
-          }}
-        >
-          {({ handleBlur }) => (
-            <Form>
-              <Field
-                as={TextField}
-                name="firstName"
-                label="First Name"
-                onBlur={handleBlur}
-              />
-              <Field
-                as={TextField}
-                name="lastName"
-                label="Last Name"
-                onBlur={handleBlur}
-              />
-              <Field
-                as={TextField}
-                name="email"
-                label="Email"
-                onBlur={handleBlur}
-              />
-              <Field
-                as={TextField}
-                name="phone"
-                label="Phone"
-                onBlur={handleBlur}
-              />
-              <Field
-                as={TextField}
-                name="address"
-                label="Address"
-                onBlur={handleBlur}
-              />
-              <Field
-                as={TextField}
-                name="city"
-                label="City"
-                onBlur={handleBlur}
-              />
-              <Field
-                as={TextField}
-                name="state"
-                label="State"
-                onBlur={handleBlur}
-              />
-              <Field
-                as={TextField}
-                name="zip"
-                label="Zip"
-                onBlur={handleBlur}
-              />
-              <Button type="submit">Submit</Button>
-            </Form>
-          )}
-        </Formik>
-      </Box>
+      <Header title="Challenges & Goals" subtitle="Set Your Fitness Journey" />
+      <Card elevation={3} sx={{ maxWidth: 600, margin: '20px auto', padding: '20px', borderRadius: '12px' }}>
+        <CardContent>
+          <Formik
+            initialValues={{
+              challenge: '',
+              goal: '',
+            }}
+            validationSchema={validationSchema}
+            onSubmit={(values) => {
+              console.log(values);
+            }}
+          >
+            {({ handleBlur, errors, touched }) => (
+              <Form>
+                <Grid container spacing={3}>
+                  <Grid item xs={12}>
+                    <Field
+                      as={TextField}
+                      name="challenge"
+                      label="Your Challenge"
+                      fullWidth
+                      multiline
+                      rows={4}
+                      error={touched.challenge && Boolean(errors.challenge)}
+                      helperText={touched.challenge && errors.challenge}
+                      onBlur={handleBlur}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Field
+                      as={TextField}
+                      name="goal"
+                      label="Your Goal"
+                      fullWidth
+                      multiline
+                      rows={4}
+                      error={touched.goal && Boolean(errors.goal)}
+                      helperText={touched.goal && errors.goal}
+                      onBlur={handleBlur}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Button type="submit" variant="contained" color="primary" fullWidth>
+                      Submit
+                    </Button>
+                  </Grid>
+                </Grid>
+              </Form>
+            )}
+          </Formik>
+        </CardContent>
+      </Card>
     </Box>
   );
 };
 
-export default FormPage;
+export default FormsPage;

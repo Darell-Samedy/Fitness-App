@@ -6,7 +6,8 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import SearchIcon from "@mui/icons-material/Search"; 
+import SearchIcon from "@mui/icons-material/Search";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const TopBar = () => {
   const theme = useTheme();
@@ -41,9 +42,12 @@ const TopBar = () => {
           <SettingsOutlinedIcon />
         </IconButton>
 
-        <IconButton>
-          <PersonOutlinedIcon />
-        </IconButton>
+        {/* Link to Profile Page */}
+        <Link to="/profile" style={{ color: "inherit", textDecoration: "none" }}>
+          <IconButton>
+            <PersonOutlinedIcon />
+          </IconButton>
+        </Link>
       </Box>
     </Box>
   );

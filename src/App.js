@@ -15,6 +15,9 @@ import Pie from './scenes/pie';
 import FAQ from './scenes/faq';
 import Geography from './scenes/geography';
 import Calendar from './scenes/calendar';
+import Profile from './scenes/profile/Profile';
+import SignUp from './scenes/profile/Signup';
+import Login from './scenes/profile/Login';
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -39,6 +42,10 @@ function App() {
               <Route path="/pie" element={<Pie />} />
               <Route path="/faq" element={<FAQ />} />
               <Route path="/geography" element={<Geography />} />
+              <Route path="/profile" element={<Profile />} /> 
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/login" element={<Login />} />
+
             </Routes>
           </main>
         </div>
