@@ -78,7 +78,6 @@ const Login = () => {
         >
           Log In
         </Typography>
-
         <form onSubmit={handleSubmit}>
           <TextField
             fullWidth
@@ -119,25 +118,6 @@ const Login = () => {
           >
             Log In
           </Button>
-
-          <Typography
-            variant="body2"
-            color={colors.grey[300]}
-            align="center"
-            sx={{ mt: 2 }}
-          >
-            Don't have an account?{" "}
-            <span
-              onClick={() => navigate("/signup")}
-              style={{
-                color: colors.blueAccent[400],
-                cursor: "pointer",
-                fontWeight: "bold",
-              }}
-            >
-              Create an account
-            </span>
-          </Typography>
         </form>
       </Box>
     </Box>
