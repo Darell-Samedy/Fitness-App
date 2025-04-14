@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, TextField, Button, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import { auth } from "../../server/firebaseConfig"; // Import Firebase Auth
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -50,6 +50,23 @@ const Login = () => {
       } else {
         alert("Failed to log in. Please try again.");
       }
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      console.log("User logged in with Google:", user);
+
+      // Redirect to the profile page with the user's information
+      navigate("/profile", { state: { userId: user.uid } });
+    } catch (error) {
+      console.error("Error during Google Sign-In:", error);
+      alert("Failed to sign in with Google. Please try again.");
     }
   };
 
@@ -119,6 +136,22 @@ const Login = () => {
             Log In
           </Button>
         </form>
+        <Button
+          fullWidth
+          variant="outlined"
+          sx={{
+            mt: "20px",
+            color: colors.grey[100],
+            borderColor: colors.grey[100],
+            "&:hover": {
+              borderColor: colors.greenAccent[700],
+              color: colors.greenAccent[700],
+            },
+          }}
+          onClick={handleGoogleSignIn}
+        >
+          Sign in with Google
+        </Button>
       </Box>
     </Box>
   );
