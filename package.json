@@ -1,61 +1,19 @@
 {
-  "name": "fitness-planner",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@fullcalendar/core": "^6.1.15",
-    "@fullcalendar/daygrid": "^6.1.15",
-    "@fullcalendar/interaction": "^6.1.15",
-    "@fullcalendar/list": "^6.1.15",
-    "@fullcalendar/react": "^6.1.15",
-    "@fullcalendar/timegrid": "^6.1.15",
-    "@mui/icons-material": "^6.4.4",
-    "@mui/material": "^6.4.4",
-    "@mui/x-data-grid": "^7.27.0",
-    "@nivo/bar": "^0.88.0",
-    "@nivo/geo": "^0.88.0",
-    "@nivo/line": "^0.88.0",
-    "@nivo/pie": "^0.88.0",
-    "ajv": "^8.8.2",
-    "autoprefixer": "^10.4.20",
-    "cra-template": "1.2.0",
-    "dotenv": "^16.4.7",
-    "firebase": "^11.6.0",
-    "formik": "^2.4.6",
-    "mongodb": "^6.15.0",
-    "postcss": "^8.5.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-pro-sidebar": "^0.7.1",
-    "react-router-dom": "^7.1.5",
-    "react-scripts": "5.0.1",
-    "tailwindcss": "^3.4.17",
-    "yup": "^1.6.1"
-  },
+  "name": "workout-ai-backend",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.8.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.2.0"
   }
 }
