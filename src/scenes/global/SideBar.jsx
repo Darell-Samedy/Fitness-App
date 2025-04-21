@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarFooter, SidebarContent } from 'react-pro-sidebar';
-import 'react-pro-sidebar/dist/css/styles.css';
-import { Box, IconButton, Typography, useTheme } from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
-import { tokens } from '../../theme';
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
-import RestaurantIcon from '@mui/icons-material/Restaurant';
-import TimelineIcon from '@mui/icons-material/Timeline';
-import SportsMotorsportsIcon from '@mui/icons-material/SportsMotorsports';
-import AssessmentIcon from '@mui/icons-material/Assessment';
-import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import React, { useState } from "react";
+import { ProSidebar, Menu, MenuItem, SidebarHeader, SidebarFooter, SidebarContent } from "react-pro-sidebar";
+import "react-pro-sidebar/dist/css/styles.css";
+import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Link, useLocation } from "react-router-dom";
+import { tokens } from "../../theme";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import RestaurantIcon from "@mui/icons-material/Restaurant";
+import SportsMotorsportsIcon from "@mui/icons-material/SportsMotorsports";
+import AssessmentIcon from "@mui/icons-material/Assessment";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined"; // Import added
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
@@ -26,7 +26,7 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
       onClick={() => setSelected(to)}
       icon={icon}
     >
-      <Link to={to} style={{ color: 'inherit', textDecoration: 'none' }}>
+      <Link to={to} style={{ color: "inherit", textDecoration: "none" }}>
         <Typography>{title}</Typography>
       </Link>
     </MenuItem>
@@ -43,21 +43,24 @@ const SideBar = () => {
   return (
     <Box
       sx={{
-        height: '100vh', // Ensure the sidebar stretches to the full height of the viewport
-        '& .pro-sidebar-inner': {
+        height: "98vh",
+        marginTop: "20px",
+        marginLeft: "20px",
+        "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
+          borderRadius: "15px",
         },
-        '& .pro-icon-wrapper': {
-          backgroundColor: 'transparent !important',
+        "& .pro-icon-wrapper": {
+          backgroundColor: "transparent !important",
         },
-        '& .pro-inner-item': {
-          padding: '5px 35px 5px 20px !important',
+        "& .pro-inner-item": {
+          padding: "5px 35px 5px 20px !important",
         },
-        '& .pro-inner-item:hover': {
-          color: '#868dfb !important',
+        "& .pro-inner-item:hover": {
+          color: "#868dfb !important",
         },
-        '& .pro-menu-item.active': {
-          color: '#6870fa !important',
+        "& .pro-menu-item.active": {
+          color: "#6870fa !important",
         },
       }}
     >
@@ -67,17 +70,12 @@ const SideBar = () => {
             onClick={() => setIsCollapsed(!isCollapsed)}
             icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
             style={{
-              margin: '10px 0 20px 0',
+              margin: "10px 0 20px 0",
               color: colors.grey[100],
             }}
           >
             {!isCollapsed && (
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                ml="15px"
-              >
+              <Box display="flex" justifyContent="space-between" alignItems="center" ml="15px">
                 <Typography variant="h3" color={colors.grey[100]}>
                   FITNESS APP
                 </Typography>
@@ -99,13 +97,6 @@ const SideBar = () => {
               setSelected={setSelected}
             />
             <Item
-              title="Workout Plans"
-              to="/workouts"
-              icon={<FitnessCenterIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
               title="Workout Plans AI"
               to="/workout-plan"
               icon={<FitnessCenterIcon />}
@@ -116,13 +107,6 @@ const SideBar = () => {
               title="Nutrition & Diet"
               to="/nutrition"
               icon={<RestaurantIcon />}
-              selected={selected}
-              setSelected={setSelected}
-            />
-            <Item
-              title="Progress Tracking"
-              to="/progress"
-              icon={<TimelineIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -151,6 +135,13 @@ const SideBar = () => {
               title="FAQ & Help"
               to="/faq"
               icon={<HelpOutlineOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+            <Item
+              title="Settings"
+              to="/settings"
+              icon={<SettingsOutlinedIcon />} // Fixed the missing import
               selected={selected}
               setSelected={setSelected}
             />
